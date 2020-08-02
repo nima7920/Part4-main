@@ -127,7 +127,7 @@ public GUIConfigLoader(String menuName){
         public static final Rectangle buy_sellPanel_bounds = new Rectangle(0, 0, 900, 600);
         public static final Dimension buy_sellPanel_size = new Dimension(900, 600);
         public static final Rectangle showcase_bounds = new Rectangle(10, 60, 900, 600);
-        public static final Dimension buy_sellImage_dimension = new Dimension(150, 210);
+        public static final Dimension buy_sellImage_size = new Dimension(150, 210);
         public static final int buy_sellImage_verticalAlign = 30;
         public static final int buy_sellImage_horizontalAlign = 20;
         public static final int buy_sellImage_row = 5;
@@ -140,7 +140,7 @@ public GUIConfigLoader(String menuName){
     public static class statusMenu {
         public static final Rectangle menu_bounds = new Rectangle(0, 0, 1200, 700);
         public static final Rectangle topDecksTable_bounds = new Rectangle(50, 50, 200, 500);
-        public static final Rectangle decksStatusTableTable_bounds = new Rectangle(300, 50, 800, 500);
+        public static final Rectangle decksStatusTable_bounds = new Rectangle(300, 50, 800, 500);
         public static final Rectangle backButton_bounds = new Rectangle(550, 570, 100, 30);
         public static final Rectangle exitButton_bounds = new Rectangle(550, 620, 100, 30);
 
@@ -196,7 +196,7 @@ public GUIConfigLoader(String menuName){
         public static final Rectangle decksPanel_deleteButton_bounds = new Rectangle(10, 410, 150, 30);
         public static final Rectangle decksPanel_addCardButton_bounds = new Rectangle(10, 450, 150, 30);
         public static final Rectangle deckPanel_changeNameButton_bounds = new Rectangle(10, 490, 150, 30);
-        public static final Rectangle deckPanel_setCurrentButton = new Rectangle(10, 530, 150, 30);
+        public static final Rectangle deckPanel_setCurrentButton_bounds = new Rectangle(10, 530, 150, 30);
         public static final Rectangle deckList_bounds = new Rectangle(10, 10, 150, 350);
 
         public static final Rectangle decksShowcase_bounds = new Rectangle(180, 10, 700, 550);

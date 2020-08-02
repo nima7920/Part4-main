@@ -68,6 +68,7 @@ public class ImageLoader {
     public BufferedImage getPowerImage(String name ) {
         return powerImages.get(name + ".png");
     }
+
     public BufferedImage getBackgroundImage(String name){
         return backGroundImages.get(name + ".jpg");
     }
