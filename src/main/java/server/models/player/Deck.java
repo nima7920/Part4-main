@@ -1,6 +1,7 @@
 package server.models.player;
 
 import server.models.cards.Card;
+import server.models.handlers.CardFactory;
 import server.models.heroes.HeroClass;
 
 import javax.persistence.Column;
@@ -20,6 +21,7 @@ public class Deck {
     @Column
     private ArrayList<String> cardsName;
 
+    private CardFactory cardFactory;
     public Deck(){
 
     }
@@ -32,23 +34,22 @@ public class Deck {
     }
 
     public int addCard(String cardName) {
-//        if (cardFactory == null)
-//            cardFactory = new CardFactory();
-//        Card card = cardFactory.getCard(cardName);
-//        if (!(card.getCardClass().toString().equals(heroClass.toString()) || card.getCardClass().toString().equals("Neutral"))) {
-//            // card is in illegal class
-//            return -1;
-//        } else if (cardsName.indexOf(cardName) != cardsName.lastIndexOf(cardName)) {
-//// there are two cards of this in deck
-//            return 0;
-//        }
-//        if (cardsName.size() == 30) // deck is full
-//            return -2;
-//
-//        cardsName.add(cardName);
-//        syncCards();
-//        return 1;
-        return 0;
+        if (cardFactory == null)
+            cardFactory = new CardFactory();
+        Card card = cardFactory.getCard(cardName);
+        if (!(card.getCardClass().toString().equals(heroClass.toString()) || card.getCardClass().toString().equals("Neutral"))) {
+            // card is in illegal class
+            return -1;
+        } else if (cardsName.indexOf(cardName) != cardsName.lastIndexOf(cardName)) {
+// there are two cards of this in deck
+            return 0;
+        }
+        if (cardsName.size() == 30) // deck is full
+            return -2;
+
+        cardsName.add(cardName);
+        syncCards();
+        return 1;
     }
 
     public void removeCard(String cardName) {
@@ -57,12 +58,12 @@ public class Deck {
     }
 
     public void syncCards() {
-//        cards = new ArrayList<>();
-//        if (cardFactory == null)
-//            cardFactory = new CardFactory();
-//        for (int i = 0; i < cardsName.size(); i++) {
-//            cards.add(cardFactory.getCard(cardsName.get(i)));
-//        }
+        cards = new ArrayList<>();
+        if (cardFactory == null)
+            cardFactory = new CardFactory();
+        for (int i = 0; i < cardsName.size(); i++) {
+            cards.add(cardFactory.getCard(cardsName.get(i)));
+        }
     }
     public Deck getClone(){
         Deck tempDeck=new Deck(this.name,this.heroClass);
