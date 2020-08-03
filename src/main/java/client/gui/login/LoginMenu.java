@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class LoginMenu extends GameMenu {
 
-    private GButton loginButton, createButton;
+    private GButton loginButton, createButton,deleteButton;
     private JTextField userNameField, passwordField;
     private JLabel welcomeLabel, usernameLabel, passwordLabel;
 private LoginActions actions;
@@ -38,6 +38,10 @@ private LoginActions actions;
         createButton.addActionListener(actions);
         add(createButton);
 
+        deleteButton = new GButton("Delete");
+        deleteButton.setBounds(guiConfigLoader.getBounds("deleteButton_bounds"));
+        deleteButton.addActionListener(actions);
+        add(deleteButton);
     }
 
     private void initLabels() {
