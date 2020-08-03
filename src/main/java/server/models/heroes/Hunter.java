@@ -3,7 +3,11 @@ package server.models.heroes;
 import server.logic.interfaces.GameChar;
 import server.logic.visitors.HeroPowerVisitor;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Hunter extends Hero {
+
     public Hunter() {
         setHeroClass(HeroClass.Hunter);
         setHp(30);

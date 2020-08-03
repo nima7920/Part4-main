@@ -1,11 +1,23 @@
 package server.models.heroes;
 
+import javax.persistence.*;
+import java.util.stream.Stream;
+
+@Entity
 public class HeroPower {
+
+    @Id
+    @Enumerated(EnumType.STRING)
   private HeroClass heroClass;
   // 0 for passive , 1 for no target and 2 for enemy target
+ @Column
   private int targetType=0;
-  private int manaCost;
+ @Column
+ private int manaCost;
 
+ public HeroPower(){
+
+ }
     public HeroPower(HeroClass heroClass, int targetType, int manaCost) {
         this.heroClass = heroClass;
         this.targetType = targetType;

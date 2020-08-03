@@ -20,8 +20,16 @@
         <property name="dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
         <!-- update the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
+<!--mapping heroes-->
+        <mapping class="server.models.heroes.Hero"/>
+        <mapping class="server.models.heroes.Mage"/>
+        <mapping class="server.models.heroes.Rogue"/>
+        <mapping class="server.models.heroes.Warlock"/>
+        <mapping class="server.models.heroes.Paladin"/>
+        <mapping class="server.models.heroes.Hunter"/>
+        <mapping class="server.models.heroes.HeroPower"/>
 
-<!--        mapping cards-->
+        <!--        mapping cards-->
 
         <mapping class="server.models.cards.Card"/>
         <mapping class="server.models.cards.Minion"/>

@@ -3,6 +3,9 @@ package server.models.heroes;
 import server.logic.interfaces.GameChar;
 import server.logic.visitors.HeroPowerVisitor;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Paladin extends Hero {
     public Paladin() {
         setHeroClass(HeroClass.Paladin);

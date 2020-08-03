@@ -1,13 +1,27 @@
 package server.models.heroes;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import server.logic.interfaces.GameChar;
 import server.logic.visitors.HeroPowerVisitor;
 
+import javax.persistence.*;
+
+@Entity
 public abstract class Hero {
+
+    @Column
 private int hp;
+    @OneToOne
+    @Cascade(CascadeType.SAVE_UPDATE)
 private HeroPower heroPower;
+    @Id
+    @Enumerated(EnumType.STRING)
 private HeroClass heroClass;
 
+    public Hero(){
+
+    }
     public int getHp() {
         return hp;
     }
