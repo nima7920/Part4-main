@@ -11,17 +11,18 @@ import javax.persistence.*;
 public abstract class Hero {
 
     @Column
-private int hp;
+    private int hp;
     @OneToOne
     @Cascade(CascadeType.SAVE_UPDATE)
-private HeroPower heroPower;
+    private HeroPower heroPower;
     @Id
     @Enumerated(EnumType.STRING)
-private HeroClass heroClass;
+    private HeroClass heroClass;
 
-    public Hero(){
+    public Hero() {
 
     }
+
     public int getHp() {
         return hp;
     }
@@ -47,24 +48,29 @@ private HeroClass heroClass;
     }
 
 
-    public static Hero getHeroFromName(String heroName){
-        switch (heroName){
-            case "Mage":{
+    public static Hero getHeroFromName(String heroName) {
+        switch (heroName) {
+            case "Mage": {
                 return new Mage();
 
-            } case "Rogue":{
+            }
+            case "Rogue": {
                 return new Rogue();
 
-            } case "Warlock":{
+            }
+            case "Warlock": {
                 return new Warlock();
 
-            } case "Paladin":{
+            }
+            case "Paladin": {
                 return new Paladin();
 
-            } case "Hunter":{
+            }
+            case "Hunter": {
                 return new Hunter();
 
-            } default:{
+            }
+            default: {
                 return new Mage();
 
             }
@@ -72,6 +78,7 @@ private HeroClass heroClass;
     }
 
     public abstract void accept(HeroPowerVisitor heroPowerVisitor, GameChar target);
+
     @Override
     public String toString() {
         return heroClass.toString();
