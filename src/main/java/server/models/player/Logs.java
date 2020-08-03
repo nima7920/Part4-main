@@ -20,9 +20,9 @@ public class Logs {
     public Logs(){
 
     }
-    public Logs(String name,List<String > logs){
+    public Logs(String name){
         this.name=name;
-        this.logs=logs;
+        this.logs=new ArrayList<>();
     }
 
     public void writeLog(String log,int index){
