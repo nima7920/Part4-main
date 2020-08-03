@@ -1,0 +1,70 @@
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+        <!--       database connection-->
+<!--        <property name="connection.driver_class">org.sqlite.JDBC</property>-->
+<!--        <property name="connection.url">jdbc:sqlite:./Game Data/Models/cards/all cards.db</property>-->
+
+<!--        &lt;!&ndash;        sql dialect&ndash;&gt;-->
+<!--        <property name="dialect">org.hibernate.dialect.SQLiteDialect</property>-->
+
+
+<!--&lt;!&ndash;                        <property name="hbm2ddl.auto">create</property>&ndash;&gt;-->
+
+<!--        <property name="hbm2ddl.auto">update</property>-->
+
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hearthstone</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">zn13792000</property>
+        <!-- SQl dialect -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
+        <!-- update the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+<!--        mapping cards-->
+
+        <mapping class="server.models.cards.Card"/>
+        <mapping class="server.models.cards.Minion"/>
+        <mapping class="server.models.cards.Spell"/>
+        <mapping class="server.models.cards.Weapon"/>
+
+        <mapping class="server.models.allCards.Polymorph"/>
+        <mapping class="server.models.allCards.FriendlySmith"/>
+        <mapping class="server.models.allCards.Dreadscale"/>
+        <mapping class="server.models.allCards.RiverCrocolisk"/>
+        <mapping class="server.models.allCards.ArcaneServant"/>
+        <mapping class="server.models.allCards.SilverbackPatriarch"/>
+        <mapping class="server.models.allCards.PhantomMilitia"/>
+        <mapping class="server.models.allCards.MurlocRaider"/>
+        <mapping class="server.models.allCards.StonetuskBoar"/>
+        <mapping class="server.models.allCards.RottenApplebaum"/>
+        <mapping class="server.models.allCards.TheBlackKnight"/>
+        <mapping class="server.models.allCards.ProudDefender"/>
+        <mapping class="server.models.allCards.Fireball"/>
+        <mapping class="server.models.allCards.ArcaneMissiles"/>
+        <mapping class="server.models.allCards.Assassinate"/>
+        <mapping class="server.models.allCards.SinisterStrike"/>
+        <mapping class="server.models.allCards.Hellfire"/>
+        <mapping class="server.models.allCards.DrainLife"/>
+        <mapping class="server.models.allCards.ArcaneExplosion"/>
+        <mapping class="server.models.allCards.IronFist"/>
+        <mapping class="server.models.allCards.BookOfSpecters"/>
+        <mapping class="server.models.allCards.Sprint"/>
+        <mapping class="server.models.allCards.SwarmOfLocusts"/>
+        <mapping class="server.models.allCards.PharaohsBlessing"/>
+        <mapping class="server.models.allCards.Sathrovarr"/>
+        <mapping class="server.models.allCards.TombWarden"/>
+        <mapping class="server.models.allCards.SecurityRover"/>
+        <mapping class="server.models.allCards.CurioCollector"/>
+        <mapping class="server.models.allCards.StrengthInNumbers"/>
+        <mapping class="server.models.allCards.LearnDraconic"/>
+        <mapping class="server.models.allCards.WickedKnife"/>
+        <mapping class="server.models.allCards.BloodFury"/>
+        <mapping class="server.models.allCards.HeavyAxe"/>
+        <mapping class="server.models.allCards.SwampKingDred"/>
+        <mapping class="server.models.allCards.MultiShot"/>
+        <mapping class="server.models.allCards.GnomishArmyKnife"/>
+        <mapping class="server.models.allCards.Consecration"/>
+
+    </session-factory>
+</hibernate-configuration>
