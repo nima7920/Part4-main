@@ -26,7 +26,8 @@ public class Player {
     private ArrayList<Deck> decks=new ArrayList<>();
 
     private Deck currentDeck;
-
+    @ElementCollection
+    @LazyCollection(LazyCollectionOption.FALSE)
     private ArrayList<String> ownedCardsName=new ArrayList<>();
 
     public Player() {
