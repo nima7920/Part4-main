@@ -1,6 +1,7 @@
 package server.models.handlers;
 
 
+import server.models.player.Deck;
 import server.models.player.Player;
 
 public class PlayerHandler {
@@ -9,24 +10,50 @@ public class PlayerHandler {
     private PlayerModerator playerModerator;
     private CardFactory cardFactory;
 
-    public PlayerHandler(){
-        cardFactory=new CardFactory();
+    public PlayerHandler() {
+        cardFactory = new CardFactory();
+        playerModerator = new PlayerModerator();
     }
 
-    public int sign_up(String name,String password){
+    // returns 0 if player exists , 1 otherwise
+    public int sign_up(String name, String password) {
+        if (playerModerator.isPlayerExist(name)) {
+            return 0;
+        } else {
+            currentPlayer = new Player(name, password, System.currentTimeMillis(), 100);
+            return 1;
+        }
 
-        return 0;
     }
 
-    public int login(String name,String password){
+    // returns 0 if player doesn't exist , -1 if password is wrong , 1 if successfully loaded
+    public int login(String name, String password) {
 
-        return 0;
+        if (!(playerModerator.isPlayerExist(name))) {
+            return 0;
+        } else if (!playerModerator.isPasswordCorrect(name, password)) {
+            return -1;
+        }
+        currentPlayer = playerModerator.getPlayer(name);
+        syncDecks();
+        return 1;
     }
 
-    public int delete(String name,String password){
+    private void syncDecks() {
+        for (Deck deck : currentPlayer.getDecks()) {
+            deck.syncCards();
+        }
+    }
 
-
-        return 0;
+    // returns -1 if password is wrong , 0 if account doesn't exist , 1 if successful
+    public int delete(String name, String password) {
+        if (!(playerModerator.isPlayerExist(name))) {
+            return 0;
+        } else if (!playerModerator.isPasswordCorrect(name, password)) {
+            return -1;
+        }
+        playerModerator.deletePlayer(name);
+        return 1;
     }
 
 
