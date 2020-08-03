@@ -18,6 +18,22 @@ public class DataBaseHandler {
         return sessionFactory;
     }
 
+    public void save(Object object) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.saveOrUpdate(object);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public void delete(Object o) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(o);
+        session.getTransaction().commit();
+        session.close();
+    }
+
     public <T> T fetch(Class<T> tClass, Serializable id) {
         Session session = sessionFactory.openSession();
         T t = session.get(tClass, id);
