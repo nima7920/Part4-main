@@ -5,12 +5,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.service.ServiceRegistry;
-import server.models.cards.Card;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class CardDataBase {
+public class DataBaseHandler {
     private  SessionFactory sessionFactory = buildSessionFactory();
 
     private  SessionFactory buildSessionFactory() {

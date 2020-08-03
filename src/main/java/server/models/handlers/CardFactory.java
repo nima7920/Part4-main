@@ -8,19 +8,19 @@ import java.util.List;
 
 public class CardFactory {
 
-private CardDataBase cardDataBase;
+private DataBaseHandler dataBaseHandler;
 
 public CardFactory(){
-    cardDataBase=new CardDataBase();
+    dataBaseHandler =new DataBaseHandler();
 }
     public Card getCard(String cardName) {
 
-        return cardDataBase.fetch(Card.class, cardName);
+        return dataBaseHandler.fetch(Card.class, cardName);
     }
 
     public List<Card> getAllCards() {
 
-        return cardDataBase.fetchAll(Card.class);
+        return dataBaseHandler.fetchAll(Card.class);
     }
 
     public List<String> getAllCardsName() {
@@ -33,7 +33,7 @@ public CardFactory(){
     }
 
     public List<Card> getCardsOfClass(CardClass cardClass) {
-        return cardDataBase.fetchWithCondition(Card.class, "cardClass", cardClass);
+        return dataBaseHandler.fetchWithCondition(Card.class, "cardClass", cardClass);
     }
 
     public List<String> getCardsNameOfClass(String cardClass) {
@@ -46,7 +46,7 @@ public CardFactory(){
     }
 
     public List<Card> getCardsOfMana(int mana) {
-        return cardDataBase.fetchWithCondition(Card.class, "manaCost", mana);
+        return dataBaseHandler.fetchWithCondition(Card.class, "manaCost", mana);
 
     }
 
