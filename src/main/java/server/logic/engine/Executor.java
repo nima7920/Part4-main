@@ -1,4 +1,4 @@
-package client_server_interfaces;
+package server.logic.engine;
 
 import java.util.HashMap;
 

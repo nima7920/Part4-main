@@ -4,25 +4,26 @@ import server.models.cards.Card;
 import server.models.handlers.CardFactory;
 import server.models.heroes.HeroClass;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 
 public class Deck {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column
     private String name;
     @Column
     @Enumerated(EnumType.STRING)
     private HeroClass heroClass;
+    @Transient
     private ArrayList<Card> cards;
     @Column
     private ArrayList<String> cardsName;
-
+    @Transient
     private CardFactory cardFactory;
-    public Deck(){
+
+    public Deck() {
 
     }
 
@@ -65,9 +66,10 @@ public class Deck {
             cards.add(cardFactory.getCard(cardsName.get(i)));
         }
     }
-    public Deck getClone(){
-        Deck tempDeck=new Deck(this.name,this.heroClass);
-        for (int i = 0; i <this.getCardsName().size() ; i++) {
+
+    public Deck getClone() {
+        Deck tempDeck = new Deck(this.name, this.heroClass);
+        for (int i = 0; i < this.getCardsName().size(); i++) {
             tempDeck.addCard(this.cardsName.get(i));
         }
         return tempDeck;

@@ -1,6 +1,5 @@
 package server.logic.engine;
 
-import client_server_interfaces.Executor;
 import client_server_interfaces.Request;
 
 import java.util.HashMap;
