@@ -1,7 +1,6 @@
 package client.controller;
 
 import client_server_interfaces.Request;
-
 import java.io.PrintWriter;
 
 public class Sender {

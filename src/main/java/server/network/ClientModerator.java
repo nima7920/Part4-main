@@ -12,7 +12,6 @@ public class ClientModerator extends Thread {
 
     private Socket socket;
     private Server server;
-    private String authToken;
     private Scanner in;
     private PrintWriter out;
     private RequestHandler requestHandler;
@@ -28,7 +27,7 @@ public class ClientModerator extends Thread {
         try {
             in = new Scanner(socket.getInputStream());
             out = new PrintWriter(socket.getOutputStream(), true);
-            requestHandler = new RequestHandler(new ResponseHandler(this, out),authToken);
+            requestHandler = new RequestHandler(new ResponseHandler(this, out));
         } catch (IOException e) {
 
         }
