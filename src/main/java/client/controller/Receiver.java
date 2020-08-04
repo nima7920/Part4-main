@@ -26,17 +26,17 @@ public class Receiver {
         login_login {
             @Override
             public void execute(Response response) {
-
+actionHandler.loginAction(response);
             }
         }, login_signUp {
             @Override
             public void execute(Response response) {
-
+                actionHandler.loginAction(response);
             }
         }, login_delete {
             @Override
             public void execute(Response response) {
-
+                actionHandler.loginAction(response);
             }
         }
 

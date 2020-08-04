@@ -2,6 +2,7 @@ package client.gui;
 
 import client.configs.GUIConfigLoader;
 import client.configs.ImageLoader;
+import client.gui.components.Message;
 
 import javax.swing.*;
 import java.awt.*;

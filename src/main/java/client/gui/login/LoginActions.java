@@ -40,4 +40,11 @@ public class LoginActions extends EventHandler {
         }
     }
 
+    public void showError(int errorCode){
+        if(errorCode==-1){
+message.showErrorMessage("Error","Wrong password");
+        }else if(errorCode==0){
+message.showErrorMessage("Error","Account existence error");
+        }
+    }
 }
