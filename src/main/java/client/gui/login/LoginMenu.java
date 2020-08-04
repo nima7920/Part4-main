@@ -26,7 +26,7 @@ public class LoginMenu extends GameMenu {
     }
 
     private void initButtons() {
-        actions = new LoginActions();
+        actions = new LoginActions(this);
 
         loginButton = new GButton("Login");
         loginButton.setBounds(guiConfigLoader.getBounds("loginButton_bounds"));

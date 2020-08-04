@@ -2,6 +2,7 @@ package gui;
 
 import client.gui.GameMenu;
 import client.gui.login.LoginMenu;
+import client.gui.main.MainMenu;
 
 import javax.swing.*;
 
@@ -23,6 +24,6 @@ public class MenuTest extends JFrame {
     }
 
     public static void main(String[] args) {
-        new MenuTest(new LoginMenu());
+        new MenuTest(new MainMenu());
     }
 }

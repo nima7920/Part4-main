@@ -1,5 +1,6 @@
 package client.gui.main;
 
+import client.configs.GUIConfigLoader;
 import client.gui.GameMenu;
 import client.gui.components.GButton;
 
@@ -14,7 +15,8 @@ public class MainMenu extends GameMenu {
     private GButton playButton, storeButton, statusButton, collectionsButton, settingsButton, exitButton;
 
     public MainMenu() {
-        actions=new MainActions();
+        actions=new MainActions(this);
+        guiConfigLoader=new GUIConfigLoader("main");
         initMenu();
         initButtons();
 
@@ -28,7 +30,6 @@ public class MainMenu extends GameMenu {
     }
 
     private void initButtons() {
-
 
         playButton = new GButton("Play");
         playButton.setBounds(guiConfigLoader.getBounds("playButton_bounds"));
@@ -61,7 +62,6 @@ public class MainMenu extends GameMenu {
         add(exitButton);
 
     }
-
 
     @Override
     protected void paintComponent(Graphics g) {
