@@ -7,20 +7,13 @@ import java.util.HashMap;
 public class Request {
 
     @Expose
-    private String authToken;
-    @Expose
     private RequestType requestType;
     @Expose
     private HashMap<String,String> parameters;
 
-    public Request(String authToken, RequestType requestType, HashMap<String, String> parameters) {
-        this.authToken = authToken;
+    public Request(RequestType requestType, HashMap<String, String> parameters) {
         this.requestType = requestType;
         this.parameters = parameters;
-    }
-
-    public String getAuthToken() {
-        return authToken;
     }
 
     public RequestType getRequestType() {

@@ -8,9 +8,9 @@ import javax.swing.*;
 
 public class LoginMenu extends GameMenu {
 
-    private GButton loginButton, createButton, deleteButton;
-    private JTextField userNameField, passwordField;
-    private JLabel welcomeLabel, usernameLabel, passwordLabel;
+     GButton loginButton, createButton, deleteButton;
+     JTextField userNameField, passwordField;
+     JLabel welcomeLabel, usernameLabel, passwordLabel;
 
     public LoginMenu() {
         // setting buttons:

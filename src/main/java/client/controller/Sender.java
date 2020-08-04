@@ -1,5 +1,7 @@
 package client.controller;
 
+import client_server_interfaces.Request;
+
 import java.io.PrintWriter;
 
 public class Sender {
@@ -20,4 +22,8 @@ public class Sender {
     void setOut(PrintWriter out){
         this.out=out;
     }
+
+public void sendRequest(Request request){
+
+}
 }
