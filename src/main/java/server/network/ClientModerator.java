@@ -1,5 +1,8 @@
 package server.network;
 
+import server.logic.engine.RequestHandler;
+import server.logic.engine.ResponseHandler;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -12,6 +15,7 @@ public class ClientModerator extends Thread {
     private String authToken;
     private Scanner in;
     private PrintWriter out;
+    private RequestHandler requestHandler;
 
     public ClientModerator(Server server, Socket socket) {
         this.server = server;
@@ -23,16 +27,19 @@ public class ClientModerator extends Thread {
     private void initHandlers() {
         try {
             in = new Scanner(socket.getInputStream());
-            out = new PrintWriter(socket.getOutputStream());
-
-        }catch(IOException e){
+            out = new PrintWriter(socket.getOutputStream(), true);
+            requestHandler = new RequestHandler(new ResponseHandler(this, out),authToken);
+        } catch (IOException e) {
 
         }
     }
 
     @Override
     public void run() {
-
+        while (!isInterrupted()) {
+            String requestString = in.nextLine();
+            requestHandler.handleRequest(requestString);
+        }
     }
 
 
