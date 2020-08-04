@@ -7,10 +7,11 @@ import java.io.PrintWriter;
 public class ResponseHandler {
 
     private PrintWriter out;
-private ClientModerator clientModerator;
-    public ResponseHandler(ClientModerator clientModerator,PrintWriter out){
-    this.clientModerator=clientModerator;
-        this.out=out;
+    private ClientModerator clientModerator;
+
+    public ResponseHandler(ClientModerator clientModerator, PrintWriter out) {
+        this.clientModerator = clientModerator;
+        this.out = out;
     }
 
 }

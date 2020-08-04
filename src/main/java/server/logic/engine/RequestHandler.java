@@ -6,12 +6,10 @@ import java.util.HashMap;
 
 public class RequestHandler {
 
-    private ResponseHandler responseHandler;
     private GsonHandler gsonHandler;
-    private Engine engine;
+    private static Engine engine;
 
     public RequestHandler(ResponseHandler responseHandler) {
-        this.responseHandler = responseHandler;
         this.engine = new Engine(responseHandler);
         gsonHandler = new GsonHandler();
     }
@@ -28,18 +26,17 @@ public class RequestHandler {
         login_login {
             @Override
             public void execute(HashMap<String, String> parameters) {
-
+                engine.login(parameters);
             }
         }, login_signUp {
             @Override
             public void execute(HashMap<String, String> parameters) {
-
-
+                engine.signUp(parameters);
             }
         }, login_delete {
             @Override
             public void execute(HashMap<String, String> parameters) {
-
+                engine.deleteAccount(parameters);
             }
         }
     }
