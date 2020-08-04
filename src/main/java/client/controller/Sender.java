@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 public class Sender {
 
     private PrintWriter out;
+    private GsonHandler gsonHandler;
     private static Sender sender;
 
     public static Sender getInstance() {
@@ -16,14 +17,16 @@ public class Sender {
     }
 
     private Sender() {
-
+        gsonHandler = new GsonHandler();
     }
 
-    void setOut(PrintWriter out){
-        this.out=out;
+    void setOut(PrintWriter out) {
+        this.out = out;
     }
 
-public void sendRequest(Request request){
+    public void sendRequest(Request request) {
+        String requestString = gsonHandler.serializeRequest(request);
+        out.println(requestString);
 
-}
+    }
 }
