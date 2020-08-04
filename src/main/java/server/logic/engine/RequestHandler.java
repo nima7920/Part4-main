@@ -1,7 +1,7 @@
 package server.logic.engine;
 
 import client_server_interfaces.Request;
-import server.network.ClientModerator;
+
 import java.util.HashMap;
 
 public class RequestHandler {
@@ -17,22 +17,26 @@ public class RequestHandler {
     }
 
     public void handleRequest(String requestString) {
-
+        Request request = gsonHandler.deserializeRequest(requestString);
+        if (request != null) {
+            RequestTypeServer requestTypeServer = RequestTypeServer.valueOf(request.getRequestType().toString());
+            requestTypeServer.execute(request.getParameters());
+        }
     }
 
-    private enum RequestType implements Executor {
-        login {
+    private enum RequestTypeServer implements Executor {
+        login_login {
             @Override
             public void execute(HashMap<String, String> parameters) {
 
             }
-        }, signUp {
+        }, login_signUp {
             @Override
             public void execute(HashMap<String, String> parameters) {
 
 
             }
-        },delete{
+        }, login_delete {
             @Override
             public void execute(HashMap<String, String> parameters) {
 

@@ -29,13 +29,13 @@ public class LoginActions extends EventHandler {
         parameters.put("password", loginMenu.passwordField.getText().trim());
 
         if (actionEvent.getSource() == loginMenu.loginButton) {
-            request = new Request(RequestType.login, parameters);
+            request = new Request(RequestType.login_login, parameters);
             sender.sendRequest(request);
         } else if (actionEvent.getSource() == loginMenu.createButton) {
-            request = new Request(RequestType.signUp, parameters);
+            request = new Request(RequestType.login_signUp, parameters);
             sender.sendRequest(request);
         } else if (actionEvent.getSource() == loginMenu.deleteButton) {
-            request = new Request(RequestType.delete, parameters);
+            request = new Request(RequestType.login_delete, parameters);
             sender.sendRequest(request);
         }
     }
