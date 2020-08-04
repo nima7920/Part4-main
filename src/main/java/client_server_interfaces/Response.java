@@ -5,6 +5,8 @@ import com.google.gson.annotations.Expose;
 public class Response {
 
     @Expose
+    private RequestType requestType;
+    @Expose
     private int resultCode=0;
 
     public Response(){
@@ -17,5 +19,9 @@ public class Response {
 
     public void setResultCode(int resultCode) {
         this.resultCode = resultCode;
+    }
+
+    public RequestType getRequestType() {
+        return requestType;
     }
 }

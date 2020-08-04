@@ -15,7 +15,8 @@ public class GsonHandler {
     }
 
     public Response deserializeResponse(String responseString) {
-
-        return null;
+        Gson gson = gsonBuilder.excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
+        Response response = gson.fromJson(responseString, Response.class);
+        return response;
     }
 }

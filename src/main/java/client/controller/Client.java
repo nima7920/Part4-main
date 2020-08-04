@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Client extends Thread{
+public class Client extends Thread {
 
     private Socket socket;
     private Scanner in;
@@ -26,7 +26,7 @@ public class Client extends Thread{
 
         }
         initTransmitters();
-        gameScreen=GameScreen.getInstance();
+        gameScreen = GameScreen.getInstance();
     }
 
     private void initTransmitters() {
@@ -37,13 +37,16 @@ public class Client extends Thread{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        sender=Sender.getInstance();
+        sender = Sender.getInstance();
         sender.setOut(out);
-        receiver=new Receiver();
+        receiver = new Receiver();
     }
 
     @Override
     public void run() {
-
+        while (in.hasNext()) {
+            String responseString = in.nextLine();
+            receiver.handleResponse(responseString);
+        }
     }
 }
