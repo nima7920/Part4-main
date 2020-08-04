@@ -10,6 +10,7 @@ public abstract class GameMenu extends JPanel {
 
     protected GUIConfigLoader guiConfigLoader;
     protected ImageLoader imageLoader = ImageLoader.getInstance();
+    protected EventHandler actions;
 
     public GameMenu() {
 
@@ -33,5 +34,9 @@ public abstract class GameMenu extends JPanel {
 
     public ImageLoader getImageLoader() {
         return imageLoader;
+    }
+
+    public EventHandler getActions() {
+        return actions;
     }
 }

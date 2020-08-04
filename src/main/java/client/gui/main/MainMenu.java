@@ -12,7 +12,6 @@ import java.io.IOException;
 public class MainMenu extends GameMenu {
 
     private GButton playButton, storeButton, statusButton, collectionsButton, settingsButton, exitButton;
-    private MainActions actions;
 
     public MainMenu() {
         actions=new MainActions();

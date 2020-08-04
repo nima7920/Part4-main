@@ -123,6 +123,9 @@ public class GameScreen {
         }
     }
 
+    public EventHandler getMenuActions(String menuName){
+        return menus.get(menuName).getActions();
+    }
 //    void refreshPlayMenu() {
 //        playMenu.refresh();
 //    }

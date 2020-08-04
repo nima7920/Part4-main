@@ -8,13 +8,13 @@ import javax.swing.*;
 
 public class LoginMenu extends GameMenu {
 
-    private GButton loginButton, createButton,deleteButton;
+    private GButton loginButton, createButton, deleteButton;
     private JTextField userNameField, passwordField;
     private JLabel welcomeLabel, usernameLabel, passwordLabel;
-private LoginActions actions;
+
     public LoginMenu() {
         // setting buttons:
-        guiConfigLoader=new GUIConfigLoader("login");
+        guiConfigLoader = new GUIConfigLoader("login");
         setBounds(guiConfigLoader.getBounds("menuBounds"));
         setLayout(null);
         initButtons();
