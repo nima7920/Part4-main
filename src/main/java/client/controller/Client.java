@@ -37,6 +37,9 @@ public class Client extends Thread{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        sender=Sender.getInstance();
+        sender.setOut(out);
+        receiver=new Receiver();
     }
 
     @Override
