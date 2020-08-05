@@ -1,7 +1,6 @@
 package client.gui.store;
 
 import client.gui.EventHandler;
-import client.gui.components.Message;
 import client_server_interfaces.Request;
 import client_server_interfaces.RequestType;
 
@@ -79,10 +78,10 @@ public class StoreActions extends EventHandler implements MouseListener {
             request = new Request(RequestType.store_sellPanel, parameters);
             sender.sendRequest(request);
         } else if (actionEvent.getSource() == storeMenu.backButton) {
-            request = new Request(RequestType.store_back, parameters);
+            request = new Request(RequestType.backToMain, parameters);
             sender.sendRequest(request);
         } else if (actionEvent.getSource() == storeMenu.exitButton) {
-            request = new Request(RequestType.store_exit, parameters);
+            request = new Request(RequestType.exitGame, parameters);
             sender.sendRequest(request);
         } else if (actionEvent.getSource() == storeMenu.buy_sellButton) {
             if (storeMenu.infoPanel.selectedCard != null) {
@@ -90,7 +89,7 @@ public class StoreActions extends EventHandler implements MouseListener {
                 if (storeMenu.buy_sellButton.getText().equals("Buy")) {
                     request = new Request(RequestType.store_buyCard, parameters);
                 } else {
-                    request = new Request(RequestType.store_sellPanel, parameters);
+                    request = new Request(RequestType.store_sellCard, parameters);
                 }
                 sender.sendRequest(request);
             } else {

@@ -4,6 +4,9 @@ package server.models.handlers;
 import server.models.player.Deck;
 import server.models.player.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PlayerHandler {
 
     private Player currentPlayer;
@@ -55,6 +58,10 @@ public class PlayerHandler {
         }
         playerModerator.deletePlayer(name);
         return 1;
+    }
+
+    public ArrayList<String> getOwnedCardsName() {
+        return (ArrayList)currentPlayer.getOwnedCardsName();
     }
 
 

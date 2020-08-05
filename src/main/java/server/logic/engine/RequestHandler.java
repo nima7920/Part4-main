@@ -38,6 +38,42 @@ public class RequestHandler {
             public void execute(HashMap<String, String> parameters) {
                 engine.deleteAccount(parameters);
             }
+        }  , backToMain {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+                engine.backToMain();
+            }
+        }, exitGame {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+                engine.exitGame();
+            }
+        },
+        store_buyPanel {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+                engine.sendBuyableCards();
+            }
+        }, store_sellPanel {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+                engine.sendSalableCards();
+            }
+        },store_cardSelect {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+                engine.selectCardForBuySell(parameters);
+            }
+        }, store_buyCard {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+                engine.buyCard(parameters);
+            }
+        }, store_sellCard {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+                engine.sellCard(parameters);
+            }
         }
     }
 }

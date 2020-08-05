@@ -45,5 +45,29 @@ public class Engine {
         loginController.delete(parameters);
     }
 
+    public void exitGame(){
 
+    }
+
+    public void backToMain(){
+
+    }
+
+    public void sendBuyableCards(){
+
+
+    }
+    public void sendSalableCards(){
+
+
+    }
+    public void selectCardForBuySell(HashMap<String, String> parameters){
+
+    }
+    public void buyCard(HashMap<String, String> parameters){
+
+    }
+    public void sellCard(HashMap<String, String> parameters){
+
+    }
 }
