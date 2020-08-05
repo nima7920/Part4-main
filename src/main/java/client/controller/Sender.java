@@ -25,6 +25,7 @@ public class Sender {
 
     public void sendRequest(Request request) {
         String requestString = gsonHandler.serializeRequest(request);
+        System.out.println(requestString);
         out.println(requestString);
 
     }

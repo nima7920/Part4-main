@@ -24,4 +24,8 @@ public class Response {
     public RequestType getRequestType() {
         return requestType;
     }
+
+    public void setRequestType(RequestType requestType) {
+        this.requestType = requestType;
+    }
 }

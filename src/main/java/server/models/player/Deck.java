@@ -1,12 +1,16 @@
 package server.models.player;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import server.models.cards.Card;
 import server.models.handlers.CardFactory;
 import server.models.heroes.HeroClass;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
 public class Deck {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +22,9 @@ public class Deck {
     private HeroClass heroClass;
     @Transient
     private ArrayList<Card> cards;
-    @Column
-    private ArrayList<String> cardsName;
+    @ElementCollection
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<String> cardsName;
     @Transient
     private CardFactory cardFactory;
 
@@ -99,7 +104,7 @@ public class Deck {
         this.cards = cards;
     }
 
-    public ArrayList<String> getCardsName() {
+    public List<String> getCardsName() {
         return cardsName;
     }
 

@@ -33,7 +33,7 @@ public class Client extends Thread {
 
         try {
             in = new Scanner(socket.getInputStream());
-            out = new PrintWriter(socket.getOutputStream());
+            out = new PrintWriter(socket.getOutputStream(),true);
         } catch (IOException e) {
             e.printStackTrace();
         }

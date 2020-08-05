@@ -24,7 +24,7 @@ public class ActionHandler {
     }
     // login methods
     public void loginAction(Response response){
-        if(response.getResultCode()==1){
+        if(response.getResultCode()==1 && !response.getRequestType().toString().equals("login_delete")){
             gameScreen.gotoMenu("main");
         }else{
             loginActions.showError(response.getResultCode());

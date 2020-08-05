@@ -9,13 +9,13 @@ public class GsonHandler {
     private GsonBuilder gsonBuilder = new GsonBuilder().excludeFieldsWithoutExposeAnnotation();
 
     public String serializeRequest(Request request) {
-        Gson gson = gsonBuilder.excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
+        Gson gson = gsonBuilder.excludeFieldsWithoutExposeAnnotation().create();
         String requestString = gson.toJson(request);
         return requestString;
     }
 
     public Response deserializeResponse(String responseString) {
-        Gson gson = gsonBuilder.excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
+        Gson gson = gsonBuilder.excludeFieldsWithoutExposeAnnotation().create();
         Response response = gson.fromJson(responseString, Response.class);
         return response;
     }

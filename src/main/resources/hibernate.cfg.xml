@@ -29,6 +29,12 @@
         <mapping class="server.models.heroes.Hunter"/>
         <mapping class="server.models.heroes.HeroPower"/>
 
+<!--        mapping player-->
+        <mapping class="server.models.player.Player"/>
+        <mapping class="server.models.player.Deck"/>
+        <mapping class="server.models.player.Logs"/>
+        <mapping class="server.models.player.Status"/>
+
         <!--        mapping cards-->
 
         <mapping class="server.models.cards.Card"/>

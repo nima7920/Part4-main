@@ -36,8 +36,13 @@ public class ClientModerator extends Thread {
     @Override
     public void run() {
         while (!isInterrupted()) {
-            String requestString = in.nextLine();
-            requestHandler.handleRequest(requestString);
+            try {
+                String requestString = in.nextLine();
+                requestHandler.handleRequest(requestString);
+            }catch (Exception e){
+                e.printStackTrace();
+                break;
+            }
         }
     }
 

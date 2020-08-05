@@ -21,6 +21,7 @@ public class PlayerHandler {
             return 0;
         } else {
             currentPlayer = new Player(name, password, System.currentTimeMillis(), 100);
+            playerModerator.savePlayer(currentPlayer);
             return 1;
         }
 

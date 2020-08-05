@@ -7,6 +7,7 @@ import org.hibernate.annotations.CascadeType;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Player {
@@ -23,14 +24,14 @@ public class Player {
     @Cascade(CascadeType.SAVE_UPDATE)
     @LazyCollection(LazyCollectionOption.FALSE)
     @JoinTable(name = "Decks")
-    private ArrayList<Deck> decks=new ArrayList<>();
+    private List<Deck> decks=new ArrayList<>();
 
     @OneToOne
     @Cascade(CascadeType.SAVE_UPDATE)
     private Deck currentDeck;
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
-    private ArrayList<String> ownedCardsName=new ArrayList<>();
+    private List<String> ownedCardsName=new ArrayList<>();
 
     @OneToOne
     @Cascade(CascadeType.SAVE_UPDATE)
@@ -83,7 +84,7 @@ public class Player {
         this.gems = gems;
     }
 
-    public ArrayList<Deck> getDecks() {
+    public List<Deck> getDecks() {
         return decks;
     }
 
@@ -99,7 +100,7 @@ public class Player {
         this.currentDeck = currentDeck;
     }
 
-    public ArrayList<String> getOwnedCardsName() {
+    public List<String> getOwnedCardsName() {
         return ownedCardsName;
     }
 

@@ -6,26 +6,29 @@ import java.net.Socket;
 
 public class Server extends Thread {
 
-private int serverPort;
-private ServerSocket serverSocket;
+    private int serverPort;
+    private ServerSocket serverSocket;
 
-public Server(int serverPort){
+    public Server(int serverPort) {
 
-    this.serverPort=serverPort;
-    try {
-        serverSocket=new ServerSocket(this.serverPort);
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-    @Override
-    public void run() {
+        this.serverPort = serverPort;
         try {
-            Socket socket = serverSocket.accept();
-            ClientModerator clientModerator = new ClientModerator(this, socket);
-            clientModerator.start();
+            serverSocket = new ServerSocket(this.serverPort);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                Socket socket = serverSocket.accept();
+                ClientModerator clientModerator = new ClientModerator(this, socket);
+                clientModerator.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
+}
