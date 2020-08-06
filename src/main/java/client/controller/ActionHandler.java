@@ -36,13 +36,12 @@ public class ActionHandler {
     }
 
     public void backToMain(){
-
+        gameScreen.gotoMenu("main");
 
     }
 
     public void exitGame(){
-
-
+        System.exit(0);
     }
     public void store_showBuyableCards(Response response){
 

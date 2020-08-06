@@ -7,6 +7,7 @@ import client_server_interfaces.RequestType;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class StoreActions extends EventHandler implements MouseListener {
@@ -95,36 +96,34 @@ public class StoreActions extends EventHandler implements MouseListener {
             } else {
                 message.showErrorMessage("No Card Selected", "Please select a Card");
             }
-//            if (infoPanel.selectedCard == null) {
-//                menuAdmin.writeLog("Error", "No card is selected");
-//                Message.showErrorMessage("No Card Selected", "Please select a Card");
-//            } else {
-//                if (Message.showConfirmMessage("warning", "are you sure?")) {
-//                    // buying a card
-//                    if (buy_sellButton.getText().equals("Buy")) {
-//                        // not enough gems
-//                        if (menuAdmin.buyCard(infoPanel.selectedCardName) == 0) {
-//                            menuAdmin.writeLog("Error", "Not enough gems");
-//                            Message.showErrorMessage("Error", "Not enough Gems");
-//                        } else { // bought successfully
-//                            menuAdmin.writeLog("Buy", "Successful");
-//                            updateCards();
-//                            buyPanel.repaint();
-//                            sellPanel.repaint();
-//                            infoPanel.updateCard("");
-//                        }
-//// selling a card
-//                    } else {
-//                        menuAdmin.writeLog("Sell", "Successful");
-//                        menuAdmin.sellCard(infoPanel.selectedCardName);
-//                        updateCards();
-//                        buyPanel.repaint();
-//                        sellPanel.repaint();
-//                        infoPanel.updateCard("");
-//                    }
-//                }
-//            }
         }
 
     }
+
+
+    public void showBuyableCards(ArrayList<String> cardNames){
+
+
+    }
+
+    public void showSalableCards(ArrayList<String> cardNames){
+
+
+    }
+
+    public void selectCard(){
+
+
+    }
+
+    public void buyCard(){
+
+
+    }
+
+    public void sellCard(){
+
+
+    }
+
 }
