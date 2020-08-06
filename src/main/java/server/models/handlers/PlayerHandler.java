@@ -61,8 +61,28 @@ public class PlayerHandler {
     }
 
     public ArrayList<String> getOwnedCardsName() {
-        return (ArrayList)currentPlayer.getOwnedCardsName();
+        return (ArrayList) currentPlayer.getOwnedCardsName();
     }
 
+    public int getGems() {
+        return currentPlayer.getGems();
+    }
 
+    public void setGems(int gems) {
+        currentPlayer.setGems(gems);
+        playerModerator.savePlayer(currentPlayer);
+    }
+
+    public void addCard(String cardName) {
+        getOwnedCardsName().add(cardName);
+        playerModerator.savePlayer(currentPlayer);
+    }
+
+    public void deleteCard(String cardName) {
+        currentPlayer.getOwnedCardsName().remove(cardName);
+        for (int i = 0; i < currentPlayer.getDecks().size(); i++) {
+            currentPlayer.getDecks().get(i).removeCard(cardName);
+        }
+        playerModerator.savePlayer(currentPlayer);
+    }
 }
