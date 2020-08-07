@@ -101,16 +101,18 @@ public class StoreActions extends EventHandler implements MouseListener {
     }
 
 
-    public void showBuyableCards(ArrayList<String> cardNames) {
+    public void showBuyableCards(ArrayList<String> cardNames, String cardName, String wallet, String cost, String rarity, String cardClass) {
 
         storeMenu.gotoBuyPanel(cardNames);
         storeMenu.infoPanel.updateCard("");
+        storeMenu.infoPanel.updateLabels(wallet, cost, rarity, cardClass);
     }
 
-    public void showSalableCards(ArrayList<String> cardNames) {
+    public void showSalableCards(ArrayList<String> cardNames, String cardName, String wallet, String cost, String rarity, String cardClass) {
 
         storeMenu.gotoSellPanel(cardNames);
         storeMenu.infoPanel.updateCard("");
+        storeMenu.infoPanel.updateLabels(wallet, cost, rarity, cardClass);
     }
 
     public void selectCard(String cardName, String wallet, String cost, String rarity, String cardClass) {
@@ -118,17 +120,19 @@ public class StoreActions extends EventHandler implements MouseListener {
         storeMenu.infoPanel.updateLabels(wallet, cost, rarity, cardClass);
     }
 
-    public void buyCard(int resultCode,String cardName,String wallet,String cost,String rarity,String cardClass) {
-if(resultCode==0){
-
-}else{
-
-}
-
+    public void buyCard(int resultCode, ArrayList<String> cardNames, String cardName, String wallet, String cost, String rarity, String cardClass) {
+        if (resultCode == 0) {
+            message.showErrorMessage("Error", "Not enough gems");
+        }
+        storeMenu.gotoBuyPanel(cardNames);
+        storeMenu.infoPanel.updateCard(cardName);
+        storeMenu.infoPanel.updateLabels(wallet, cost, rarity, cardClass);
     }
 
-    public void sellCard() {
-
+    public void sellCard(ArrayList<String> cardNames, String cardName, String wallet, String cost, String rarity, String cardClass) {
+        storeMenu.gotoSellPanel(cardNames);
+        storeMenu.infoPanel.updateCard(cardName);
+        storeMenu.infoPanel.updateLabels(wallet, cost, rarity, cardClass);
 
     }
 
