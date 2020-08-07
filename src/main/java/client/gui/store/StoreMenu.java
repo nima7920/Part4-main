@@ -20,8 +20,8 @@ public class StoreMenu extends GameMenu {
     JScrollPane showCase;
 
     // required info
-    ArrayList<String> buyableCards, salableCards;
-    ArrayList<GCard> buyableGCards, salableGCards;
+    ArrayList<String> buyableCards = new ArrayList<>(), salableCards = new ArrayList<>();
+    ArrayList<GCard> buyableGCards = new ArrayList<>(), salableGCards = new ArrayList<>();
 
 
     StoreActions actions;
@@ -29,7 +29,7 @@ public class StoreMenu extends GameMenu {
 
     public StoreMenu() {
 // creating all the objects:
-        actions=new StoreActions(this);
+        actions = new StoreActions(this);
         buyPanel = new BuyPanel(this);
         sellPanel = new SellPanel(this);
         infoPanel = new InfoPanel(this);
@@ -99,9 +99,46 @@ public class StoreMenu extends GameMenu {
 
     private void paintGraphics(Graphics2D g2d) {
 
-            BufferedImage backgroundImage = imageLoader.getBackgroundImage("Store");
-            g2d.drawImage(backgroundImage, 0, 0, guiConfigLoader.getBounds("menuBounds").width,
-                    guiConfigLoader.getBounds("menuBounds").height, null);
+        BufferedImage backgroundImage = imageLoader.getBackgroundImage("Store");
+        g2d.drawImage(backgroundImage, 0, 0, guiConfigLoader.getBounds("menuBounds").width,
+                guiConfigLoader.getBounds("menuBounds").height, null);
+
+    }
+
+    void gotoBuyPanel(ArrayList<String> buyableCards) {
+        this.buyableCards = buyableCards;
+        buyableGCards = new ArrayList<>();
+        for (int i = 0; i < buyableCards.size(); i++) {
+            GCard gCard = new GCard(guiConfigLoader.getSize("buy_sellImage_size"), buyableCards.get(i), cardPos(i));
+            buyableGCards.add(gCard);
+        }
+        showCase.setViewportView(buyPanel);
+        buy_sellButton.setText("Buy");
+        buyPanel.repaint();
+    }
+
+    void gotoSellPanel(ArrayList<String> salableCards) {
+        this.salableCards = salableCards;
+        salableGCards = new ArrayList<>();
+        for (int i = 0; i < salableCards.size(); i++) {
+            GCard gCard = new GCard(guiConfigLoader.getSize("buy_sellImage_size"), salableCards.get(i), cardPos(i));
+            salableGCards.add(gCard);
+        }
+        showCase.setViewportView(sellPanel);
+        buy_sellButton.setText("Sell");
+        sellPanel.repaint();
+    }
+
+    Point cardPos(int i) {
+        int column = i % guiConfigLoader.getInt("buy_sellImage_row"),
+                row = i / guiConfigLoader.getInt("buy_sellImage_row");
+        int x = guiConfigLoader.getInt("buy_sellImage_horizontalAlign") +
+                column * (guiConfigLoader.getSize("buy_sellImage_dimension").width +
+                        guiConfigLoader.getInt("buy_sellImage_horizontalAlign"));
+        int y = guiConfigLoader.getInt("buy_sellImage_verticalAlign") +
+                row * (guiConfigLoader.getSize("buy_sellImage_dimension").height +
+                        guiConfigLoader.getInt("buy_sellImage_verticalAlign"));
+        return new Point(x, y);
 
     }
 }

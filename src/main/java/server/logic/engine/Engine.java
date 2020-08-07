@@ -2,6 +2,7 @@ package server.logic.engine;
 
 import server.logic.controllers.LoginController;
 import server.logic.controllers.MainController;
+import server.logic.controllers.StoreController;
 import server.models.handlers.CardFactory;
 import server.models.handlers.PlayerHandler;
 
@@ -18,6 +19,7 @@ public class Engine {
     // controller objects
     private LoginController loginController;
     private MainController mainController;
+    private StoreController storeController;
 
     public Engine(ResponseHandler responseHandler) {
         this.responseHandler = responseHandler;
@@ -29,6 +31,7 @@ public class Engine {
     private void initControllers() {
         loginController = new LoginController(responseHandler, playerHandler, cardFactory);
         mainController = new MainController(responseHandler, playerHandler, cardFactory);
+        storeController = new StoreController(responseHandler, playerHandler, cardFactory);
 
     }
 
@@ -45,29 +48,31 @@ public class Engine {
         loginController.delete(parameters);
     }
 
-    public void exitGame(){
+    public void exitGame() {
 
     }
 
-    public void backToMain(){
+    public void backToMain() {
 
     }
 
-    public void sendBuyableCards(){
-
-
+    public void sendBuyableCards() {
+        storeController.sendBuyableCards();
     }
-    public void sendSalableCards(){
 
-
+    public void sendSalableCards() {
+        storeController.sendSalableCards();
     }
-    public void selectCardForBuySell(HashMap<String, String> parameters){
 
+    public void selectCardForBuySell(HashMap<String, String> parameters) {
+        storeController.selectCard(parameters);
     }
-    public void buyCard(HashMap<String, String> parameters){
 
+    public void buyCard(HashMap<String, String> parameters) {
+        storeController.buyCard(parameters);
     }
-    public void sellCard(HashMap<String, String> parameters){
 
+    public void sellCard(HashMap<String, String> parameters) {
+        storeController.sellCard(parameters);
     }
 }
