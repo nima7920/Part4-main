@@ -44,21 +44,39 @@ public class ActionHandler {
         System.exit(0);
     }
     public void store_showBuyableCards(Response response){
-
-
+        storeActions.showBuyableCards(response.getNamesList(),response.getParameters().get("cardName"),
+                response.getParameters().get("wallet"),
+                response.getParameters().get("cost"),
+                response.getParameters().get("rarity"),
+                response.getParameters().get("cardClass"));
     }
     public void store_showSalableCards(Response response){
-
-
+        storeActions.showSalableCards(response.getNamesList(),response.getParameters().get("cardName"),
+                response.getParameters().get("wallet"),
+                response.getParameters().get("cost"),
+                response.getParameters().get("rarity"),
+                response.getParameters().get("cardClass"));
     }
     public void store_selectCard(Response response){
-
+storeActions.selectCard(response.getParameters().get("cardName"),
+        response.getParameters().get("wallet"),
+        response.getParameters().get("cost"),
+        response.getParameters().get("rarity"),
+        response.getParameters().get("cardClass"));
 
     }
     public void store_buyCard(Response response){
-
+storeActions.buyCard(response.getResultCode(),response.getNamesList(),response.getParameters().get("cardName"),
+        response.getParameters().get("wallet"),
+        response.getParameters().get("cost"),
+        response.getParameters().get("rarity"),
+        response.getParameters().get("cardClass"));
     }
     public void store_sellCard(Response response){
-
+storeActions.sellCard(response.getNamesList(),response.getParameters().get("cardName"),
+        response.getParameters().get("wallet"),
+        response.getParameters().get("cost"),
+        response.getParameters().get("rarity"),
+        response.getParameters().get("cardClass"));
     }
 }
