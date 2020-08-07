@@ -23,7 +23,7 @@ public class SellPanel extends JPanel {
     private void updateScrolls(int y) {
         setPreferredSize(new Dimension(storeMenu.getGuiConfigLoader().getSize("buy_sellPanel_size").width,
                 Math.max(storeMenu.getGuiConfigLoader().getSize("buy_sellPanel_size").height, y)));
-//        storeMenu.showCase.setViewportView(this);
+        storeMenu.showCase.setViewportView(this);
         repaint();
     }
 
@@ -31,9 +31,11 @@ public class SellPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = storeMenu.addRenderingHint(g);
-//        for (int i = 0; i < storeMenu.getBuyableCards().size(); i++) {
-//            storeMenu.getBuyableGCards().get(i).render(g2d);
-//        }
-//        updateScrolls(storeMenu.cardPos(storeMenu.getBuyableCards().size() + 4).y);
+        if(storeMenu.salableGCards!=null) {
+            for (int i = 0; i < storeMenu.salableGCards.size(); i++) {
+                storeMenu.salableGCards.get(i).render(g2d);
+            }
+            updateScrolls(storeMenu.cardPos(storeMenu.salableGCards.size() + 4).y);
+        }
     }
 }
