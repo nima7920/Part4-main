@@ -62,26 +62,25 @@ public class InfoPanel extends JPanel {
 
     }
 
-//    public void updateCard(String cardName) {
-//        if (cardName.equals("")) {
-//            selectedCardName = "";
-//            selectedCard = null;
-//        } else {
-//            selectedCardName = cardName;
-//            selectedCard = new GCard(storeMenu.getGuiConfigLoader().getSize("infoImageBox_size"), selectedCardName,
-//                    storeMenu.getGuiConfigLoader().getPoint("infoImageBox_location"));
-//        }
-//        updateLabels();
-//        repaint();
-//    }
+    public void updateCard(String cardName) {
+        if (cardName.equals("")) {
+            selectedCardName = "";
+            selectedCard = null;
+        } else {
+            selectedCardName = cardName;
+            selectedCard = new GCard(storeMenu.getGuiConfigLoader().getSize("infoImageBox_size"), selectedCardName,
+                    storeMenu.getGuiConfigLoader().getPoint("infoImageBox_location"));
+        }
+        repaint();
+    }
 
-//    private void updateLabels() {
-//        walletLabel.setText("Wallet:" + storeMenu.getMenuAdmin().getPlayerWallet());
-//        costLabel.setText("Cost:" + storeMenu.getMenuAdmin().getCardCost(selectedCardName));
-//        rarityLabel.setText("Rarity:" + storeMenu.getMenuAdmin().getCardRarity(selectedCardName));
-//        classLabel.setText("Class:" + storeMenu.getMenuAdmin().getCardClass(selectedCardName));
-//
-//    }
+    private void updateLabels(String wallet,String cost,String rarity,String cardClass) {
+        walletLabel.setText("Wallet:" + wallet);
+        costLabel.setText("Cost:" + cost);
+        rarityLabel.setText("Rarity:" + rarity);
+        classLabel.setText("Class:" + cardClass);
+
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
