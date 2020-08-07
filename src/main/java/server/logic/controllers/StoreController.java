@@ -21,6 +21,7 @@ public class StoreController extends Controller {
         Response response = new Response();
         response.setRequestType(RequestType.store_buyPanel);
         response.setNamesList((ArrayList) getBuyableCards());
+        response.setParameters(fillInfo("", playerHandler.getGems() + "", "", "", ""));
         responseHandler.handleResponse(response);
     }
 
@@ -28,6 +29,7 @@ public class StoreController extends Controller {
         Response response = new Response();
         response.setRequestType(RequestType.store_sellPanel);
         response.setNamesList((ArrayList) getSalableCards());
+        response.setParameters(fillInfo("", playerHandler.getGems() + "", "", "", ""));
         responseHandler.handleResponse(response);
     }
 
@@ -36,12 +38,8 @@ public class StoreController extends Controller {
         int wallet = playerHandler.getGems();
         Response response = new Response();
         response.setRequestType(RequestType.store_cardSelect);
-        HashMap<String, String> resParameters = new HashMap<>();
-        resParameters.put("wallet", wallet + "");
-        resParameters.put("cost", card.getGemCost() + "");
-        resParameters.put("cardClass", card.getCardClass().toString());
-        resParameters.put("rarity", card.getRarity().toString());
-        response.setParameters(resParameters);
+        response.setParameters(fillInfo(card.getCardName(), wallet + "",
+                card.getGemCost() + "", card.getRarity().toString(), card.getCardClass().toString()));
         responseHandler.handleResponse(response);
     }
 
@@ -51,22 +49,14 @@ public class StoreController extends Controller {
         Card card = cardFactory.getCard(parameters.get("cardName"));
         if (playerHandler.getGems() < card.getGemCost()) {
             response.setResultCode(0);
-            HashMap<String, String> resParameters = new HashMap<>();
-            resParameters.put("wallet", playerHandler.getGems() + "");
-            resParameters.put("cost", card.getGemCost() + "");
-            resParameters.put("cardClass", card.getCardClass().toString());
-            resParameters.put("rarity", card.getRarity().toString());
-            response.setParameters(resParameters);
+            response.setParameters(fillInfo(card.getCardName(), playerHandler.getGems() + "",
+                    card.getGemCost() + "", card.getRarity().toString(), card.getCardClass().toString()));
         } else {
             response.setResultCode(1);
             playerHandler.addCard(card.getCardName());
             playerHandler.setGems(playerHandler.getGems() - card.getGemCost());
-            HashMap<String, String> resParameters = new HashMap<>();
-            resParameters.put("wallet", playerHandler.getGems() + "");
-            resParameters.put("cost", "");
-            resParameters.put("cardClass", "");
-            resParameters.put("rarity", "");
-            response.setParameters(resParameters);
+            response.setParameters(fillInfo("", playerHandler.getGems() + "", "", "", ""));
+
         }
         response.setNamesList((ArrayList) getBuyableCards());
         responseHandler.handleResponse(response);
@@ -78,13 +68,9 @@ public class StoreController extends Controller {
         Card card = cardFactory.getCard(parameters.get("cardName"));
         playerHandler.deleteCard(card.getCardName());
         playerHandler.setGems(playerHandler.getGems() + card.getGemCost());
-        HashMap<String, String> resParameters = new HashMap<>();
-        resParameters.put("wallet", playerHandler.getGems() + "");
-        resParameters.put("cost", "");
-        resParameters.put("cardClass", "");
-        resParameters.put("rarity", "");
         response.setNamesList((ArrayList) getSalableCards());
-        response.setParameters(resParameters);
+        response.setParameters(fillInfo("", playerHandler.getGems() + "", "", "", ""));
+        responseHandler.handleResponse(response);
     }
 
     private List<String> getBuyableCards() {
@@ -100,4 +86,13 @@ public class StoreController extends Controller {
         return salableCards;
     }
 
+    private HashMap<String, String> fillInfo(String cardName, String wallet, String cost, String rarity, String cardClass) {
+        HashMap<String, String> resParameters = new HashMap<>();
+        resParameters.put("cardName", cardName);
+        resParameters.put("wallet", wallet);
+        resParameters.put("cost", cost);
+        resParameters.put("cardClass", cardClass);
+        resParameters.put("rarity", rarity);
+        return resParameters;
+    }
 }

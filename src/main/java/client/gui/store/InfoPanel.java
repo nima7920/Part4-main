@@ -74,7 +74,7 @@ public class InfoPanel extends JPanel {
         repaint();
     }
 
-    private void updateLabels(String wallet,String cost,String rarity,String cardClass) {
+     void updateLabels(String wallet,String cost,String rarity,String cardClass) {
         walletLabel.setText("Wallet:" + wallet);
         costLabel.setText("Cost:" + cost);
         rarityLabel.setText("Rarity:" + rarity);

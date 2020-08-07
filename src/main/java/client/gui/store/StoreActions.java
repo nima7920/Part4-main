@@ -101,27 +101,33 @@ public class StoreActions extends EventHandler implements MouseListener {
     }
 
 
-    public void showBuyableCards(ArrayList<String> cardNames){
+    public void showBuyableCards(ArrayList<String> cardNames) {
 
+        storeMenu.gotoBuyPanel(cardNames);
+        storeMenu.infoPanel.updateCard("");
+    }
+
+    public void showSalableCards(ArrayList<String> cardNames) {
+
+        storeMenu.gotoSellPanel(cardNames);
+        storeMenu.infoPanel.updateCard("");
+    }
+
+    public void selectCard(String cardName, String wallet, String cost, String rarity, String cardClass) {
+        storeMenu.infoPanel.updateCard(cardName);
+        storeMenu.infoPanel.updateLabels(wallet, cost, rarity, cardClass);
+    }
+
+    public void buyCard(int resultCode,String cardName,String wallet,String cost,String rarity,String cardClass) {
+if(resultCode==0){
+
+}else{
+
+}
 
     }
 
-    public void showSalableCards(ArrayList<String> cardNames){
-
-
-    }
-
-    public void selectCard(){
-
-
-    }
-
-    public void buyCard(){
-
-
-    }
-
-    public void sellCard(){
+    public void sellCard() {
 
 
     }
