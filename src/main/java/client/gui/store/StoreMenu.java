@@ -24,7 +24,7 @@ public class StoreMenu extends GameMenu {
     ArrayList<GCard> buyableGCards = new ArrayList<>(), salableGCards = new ArrayList<>();
 
 
-    StoreActions actions;
+//    StoreActions actions;
     String currentTab;
 
     public StoreMenu() {
