@@ -48,6 +48,22 @@ public class Engine {
         loginController.delete(parameters);
     }
 
+    public void gotoPlay() {
+        mainController.gotoPlay();
+    }
+
+    public void gotoStore() {
+        mainController.gotoStore();
+    }
+
+    public void gotoCollections() {
+        mainController.gotoCollections();
+    }
+
+    public void gotoStatus() {
+        mainController.gotoStatus();
+    }
+
     public void exitGame() {
 
     }
@@ -56,6 +72,7 @@ public class Engine {
 
     }
 
+    // store menu
     public void sendBuyableCards() {
         storeController.sendBuyableCards();
     }
