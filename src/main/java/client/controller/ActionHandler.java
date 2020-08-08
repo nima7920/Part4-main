@@ -43,6 +43,7 @@ public class ActionHandler {
     public void exitGame(){
         System.exit(0);
     }
+    // store
     public void store_showBuyableCards(Response response){
         storeActions.showBuyableCards(response.getNamesList(),response.getParameters().get("cardName"),
                 response.getParameters().get("wallet"),
