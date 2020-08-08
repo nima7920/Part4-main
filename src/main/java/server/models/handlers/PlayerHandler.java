@@ -60,6 +60,7 @@ public class PlayerHandler {
         return 1;
     }
 
+    // mostly used in store menu
     public ArrayList<String> getOwnedCardsName() {
         return (ArrayList) currentPlayer.getOwnedCardsName();
     }
@@ -84,5 +85,14 @@ public class PlayerHandler {
             currentPlayer.getDecks().get(i).removeCard(cardName);
         }
         playerModerator.savePlayer(currentPlayer);
+    }
+    // mostly used in collections
+    public Deck getDeckFromName(String deckName){
+       for(Deck deck:currentPlayer.getDecks()){
+           if(deck.getName().equals(deckName)){
+               return deck;
+           }
+       }
+        return null;
     }
 }
