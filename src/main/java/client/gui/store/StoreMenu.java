@@ -1,5 +1,6 @@
 package client.gui.store;
 
+import client.configs.GUIConfigLoader;
 import client.gui.GameMenu;
 import client.gui.components.GButton;
 import client.gui.components.GCard;
@@ -19,6 +20,7 @@ public class StoreMenu extends GameMenu {
     GButton buyCardButton, sellCardButton, buy_sellButton, backButton, exitButton;
     JScrollPane showCase;
 
+    StoreActions actions;
     // required info
     ArrayList<String> buyableCards = new ArrayList<>(), salableCards = new ArrayList<>();
     ArrayList<GCard> buyableGCards = new ArrayList<>(), salableGCards = new ArrayList<>();
@@ -28,6 +30,7 @@ public class StoreMenu extends GameMenu {
     String currentTab;
 
     public StoreMenu() {
+        guiConfigLoader = new GUIConfigLoader("store");
 // creating all the objects:
         actions = new StoreActions(this);
         buyPanel = new BuyPanel(this);

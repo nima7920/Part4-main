@@ -17,7 +17,7 @@ public class BuyPanel extends JPanel {
         setBounds(storeMenu.getGuiConfigLoader().getBounds("buy_sellPanel_bounds"));
         setPreferredSize(storeMenu.getGuiConfigLoader().getSize("buy_sellPanel_size"));
         setOpaque(false);
-//        addMouseListener(storeMenu.getActions());
+//        addMouseListener();
     }
 
     private void updateScrolls(int y) {

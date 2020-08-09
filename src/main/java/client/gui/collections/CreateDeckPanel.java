@@ -1,4 +1,12 @@
 package client.gui.collections;
 
-public class CreateDeckPanel {
+import javax.swing.*;
+
+public class CreateDeckPanel extends JPanel {
+
+    private CollectionsMenu collectionsMenu;
+
+    public CreateDeckPanel(CollectionsMenu collectionsMenu) {
+        this.collectionsMenu = collectionsMenu;
+    }
 }

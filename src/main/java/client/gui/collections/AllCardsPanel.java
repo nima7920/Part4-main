@@ -73,7 +73,7 @@ public class AllCardsPanel extends JPanel {
         // search field
         searchField = new JTextField();
         searchField.setBounds(collectionsMenu.getGuiConfigLoader().getBounds("searchField_bounds"));
-        searchField.getDocument().addDocumentListener(collectionsMenu.actions);
+        searchField.getDocument().addDocumentListener((CollectionsActions) collectionsMenu.getActions());
         add(searchField);
         // slider
         manaSortSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 10, 0);
@@ -82,7 +82,7 @@ public class AllCardsPanel extends JPanel {
         manaSortSlider.setMajorTickSpacing(1);
         manaSortSlider.setPaintLabels(true);
         manaSortSlider.setPaintTicks(true);
-        manaSortSlider.addChangeListener(collectionsMenu.actions);
+        manaSortSlider.addChangeListener((CollectionsActions) collectionsMenu.getActions());
         manaSortSlider.setOpaque(false);
         manaSortSlider.setForeground(collectionsMenu.getGuiConfigLoader().generalLabel_foreColor);
         add(manaSortSlider);
@@ -91,8 +91,8 @@ public class AllCardsPanel extends JPanel {
         notOwnedCardsRadio = new JRadioButton("Not owned");
         ownedCardsRadio.setBounds(collectionsMenu.getGuiConfigLoader().getBounds("ownedCardsRadio_bounds"));
         notOwnedCardsRadio.setBounds(collectionsMenu.getGuiConfigLoader().getBounds("notOwnedCardsRadio_bounds"));
-        ownedCardsRadio.addActionListener(collectionsMenu.actions);
-        notOwnedCardsRadio.addActionListener(collectionsMenu.actions);
+        ownedCardsRadio.addActionListener(collectionsMenu.getActions());
+        notOwnedCardsRadio.addActionListener(collectionsMenu.getActions());
         ownedCardsRadio.setOpaque(false);
         notOwnedCardsRadio.setOpaque(false);
         ownedCardsRadio.setForeground(collectionsMenu.getGuiConfigLoader().generalLabel_foreColor);

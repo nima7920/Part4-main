@@ -53,7 +53,7 @@ public class Engine {
     }
 
     public void gotoStore() {
-        mainController.gotoStore();
+        storeController.sendBuyableCards();
     }
 
     public void gotoCollections() {
