@@ -11,6 +11,8 @@ public enum RequestType {
 // collections requests
     collections_allCards,collections_gotoStore,collections_deckPanel,collections_selectDeck,
     collections_deckDeleteCard , collections_gotoCreate , collections_createDeck , collections_deleteDeck,
-    collections_gotoAddCard , collections_deckAddCard , collections_changeName , collections_setCurrent;
+    collections_gotoAddCard , collections_deckAddCard , collections_changeName , collections_setCurrent,
 
+    // preparation menu
+    preparation_playMode, preparation_passive;
 }

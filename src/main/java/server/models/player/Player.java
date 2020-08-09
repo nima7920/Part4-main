@@ -14,24 +14,24 @@ public class Player {
 
     @Id
     private String name;
-@Column
+    @Column
     private String password;
-@Column
+    @Column
     private long id;
-@Column
+    @Column
     private int gems;
     @OneToMany
     @Cascade(CascadeType.SAVE_UPDATE)
     @LazyCollection(LazyCollectionOption.FALSE)
     @JoinTable(name = "Decks")
-    private List<Deck> decks=new ArrayList<>();
+    private List<Deck> decks = new ArrayList<>();
 
     @OneToOne
     @Cascade(CascadeType.SAVE_UPDATE)
     private Deck currentDeck;
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
-    private List<String> ownedCardsName=new ArrayList<>();
+    private List<String> ownedCardsName = new ArrayList<>();
 
     @OneToOne
     @Cascade(CascadeType.SAVE_UPDATE)
@@ -40,15 +40,16 @@ public class Player {
     public Player() {
 
     }
-// this constructor is for create account
+
+    // this constructor is for create account
     public Player(String name, String password, long id, int gems) {
         this.name = name;
         this.password = password;
         this.id = id;
         this.gems = gems;
-        this.decks=new ArrayList<>();
-        this.ownedCardsName=new ArrayList<>();
-        this.logs=new Logs(this.name+"-"+this.id);
+        this.decks = new ArrayList<>();
+        this.ownedCardsName = new ArrayList<>();
+        this.logs = new Logs(this.name + "-" + this.id);
 
     }
 
