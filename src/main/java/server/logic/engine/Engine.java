@@ -8,6 +8,7 @@ import server.logic.controllers.play.GameController;
 import server.logic.controllers.play.MultiPlay;
 import server.logic.controllers.play.PreparedPlay;
 import server.logic.controllers.play.SinglePlay;
+import server.logic.gameState.PlayGroundState;
 import server.models.handlers.CardFactory;
 import server.models.handlers.PlayerHandler;
 
@@ -129,7 +130,12 @@ public class Engine {
     public int getPlayMode() {
         return playMode;
     }
+
     public void selectPassive(HashMap<String,String> parameters){
 
     }
+    public void startGame(PlayGroundState playGroundState,int playerID){
+
+    }
+
 }

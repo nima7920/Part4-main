@@ -2,6 +2,7 @@ package server.network;
 
 import server.logic.engine.RequestHandler;
 import server.logic.engine.ResponseHandler;
+import server.logic.gameState.PlayGroundState;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,7 +28,7 @@ public class ClientModerator extends Thread {
         try {
             in = new Scanner(socket.getInputStream());
             out = new PrintWriter(socket.getOutputStream(), true);
-            requestHandler = new RequestHandler(this,new ResponseHandler(this, out));
+            requestHandler = new RequestHandler(this, new ResponseHandler(this, out));
         } catch (IOException e) {
 
         }
@@ -46,8 +47,11 @@ public class ClientModerator extends Thread {
         }
     }
 
-    public void startGame(int playMode) {
-
+    public void requestGame(int playMode) {
+        server.requestGame(this,playMode);
     }
 
+    public void startGame(PlayGroundState playGroundState,int playerID){
+        requestHandler.startGame(playGroundState,playerID);
+    }
 }

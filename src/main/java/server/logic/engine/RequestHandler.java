@@ -1,6 +1,7 @@
 package server.logic.engine;
 
 import client_server_interfaces.Request;
+import server.logic.gameState.PlayGroundState;
 import server.network.ClientModerator;
 
 import java.util.HashMap;
@@ -9,10 +10,10 @@ public class RequestHandler {
 
     private GsonHandler gsonHandler;
     private static Engine engine;
-    private ClientModerator clientModerator;
+    private static ClientModerator clientModerator;
 
-    public RequestHandler(ClientModerator clientModerator,ResponseHandler responseHandler) {
-        this.clientModerator=clientModerator;
+    public RequestHandler(ClientModerator clientModerator, ResponseHandler responseHandler) {
+        this.clientModerator = clientModerator;
         this.engine = new Engine(responseHandler);
         gsonHandler = new GsonHandler();
     }
@@ -23,6 +24,10 @@ public class RequestHandler {
             RequestTypeServer requestTypeServer = RequestTypeServer.valueOf(request.getRequestType().toString());
             requestTypeServer.execute(request.getParameters());
         }
+    }
+
+    public void startGame(PlayGroundState playGroundState, int playerID) {
+        engine.startGame(playGroundState, playerID);
     }
 
     private enum RequestTypeServer implements Executor {
@@ -170,7 +175,8 @@ public class RequestHandler {
         }, preparation_passive {
             @Override
             public void execute(HashMap<String, String> parameters) {
-
+                engine.selectPassive(parameters);
+                clientModerator.requestGame(engine.getPlayMode());
             }
         }
     }
