@@ -13,7 +13,7 @@ public class GamerState {
     private ArrayList<Card> deckCards;
     private Card[] handCards;
     private boolean discoverMode = false;
-    private Card[] discoveredCards;
+    private String[] discoveredCards;
 
 
     public GamerState(){
@@ -85,11 +85,11 @@ public class GamerState {
         this.discoverMode = discoverMode;
     }
 
-    public Card[] getDiscoveredCards() {
+    public String[] getDiscoveredCards() {
         return discoveredCards;
     }
 
-    public void setDiscoveredCards(Card[] discoveredCards) {
+    public void setDiscoveredCards(String[] discoveredCards) {
         this.discoveredCards = discoveredCards;
     }
 
