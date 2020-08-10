@@ -1,7 +1,7 @@
 package server.logic.visitors;
 
 import server.models.heroes.*;
-import server.logic.interfaces.GameChar;
+import server.logic.gameState.GameChar;
 
 public interface HeroPowerVisitor {
     void mageVisit(Mage mage, GameChar target);

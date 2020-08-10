@@ -1,7 +1,7 @@
 package server.models.allCards;
 
 import server.models.cards.*;
-import server.logic.interfaces.GameChar;
+import server.logic.gameState.GameChar;
 import server.logic.visitors.CardVisitor;
 
 

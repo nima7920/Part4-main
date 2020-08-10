@@ -1,4 +1,4 @@
-package server.logic.interfaces;
+package server.logic.gameState;
 
 public abstract class GameChar {
     protected int hp;

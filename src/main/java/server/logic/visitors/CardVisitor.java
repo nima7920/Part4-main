@@ -1,7 +1,7 @@
 package server.logic.visitors;
 
 import server.models.allCards.*;
-import server.logic.interfaces.GameChar;
+import server.logic.gameState.GameChar;
 public interface CardVisitor {
     void polymorphVisit(Polymorph polymorph, GameChar target);
     void friendlySmithVisit(FriendlySmith friendlySmith, GameChar target);

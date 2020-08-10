@@ -2,7 +2,7 @@ package server.models.heroes;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
-import server.logic.interfaces.GameChar;
+import server.logic.gameState.GameChar;
 import server.logic.visitors.HeroPowerVisitor;
 
 import javax.persistence.*;

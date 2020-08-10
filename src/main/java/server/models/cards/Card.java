@@ -1,7 +1,7 @@
 package server.models.cards;
 
 import server.logic.visitors.CardVisitor;
-import server.logic.interfaces.GameChar;
+import server.logic.gameState.GameChar;
 
 import javax.persistence.*;
 

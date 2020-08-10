@@ -97,6 +97,78 @@ public class RequestHandler {
             public void execute(HashMap<String, String> parameters) {
                 engine.sellCard(parameters);
             }
+        } , collections_allCards {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        },collections_gotoStore {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        },collections_deckPanel {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        },collections_selectDeck {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        },
+        collections_deckDeleteCard {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        }, collections_gotoCreate {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        }, collections_createDeck {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        }, collections_deleteDeck {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        },
+        collections_gotoAddCard {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        }, collections_deckAddCard {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        }, collections_changeName {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        }, collections_setCurrent {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        }, preparation_playMode {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
+        }, preparation_passive {
+            @Override
+            public void execute(HashMap<String, String> parameters) {
+
+            }
         }
     }
 }

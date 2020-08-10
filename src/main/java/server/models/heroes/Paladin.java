@@ -1,6 +1,6 @@
 package server.models.heroes;
 
-import server.logic.interfaces.GameChar;
+import server.logic.gameState.GameChar;
 import server.logic.visitors.HeroPowerVisitor;
 
 import javax.persistence.Entity;
