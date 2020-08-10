@@ -6,14 +6,26 @@ import java.util.ArrayList;
 
 public class GamerState {
 
+    private int gamerID;
     private int mana = 1, turnNumber = 1;
     private GamerHeroState gamerHero = null;
     private GamerHeroPowerState gamerHeroPower = null;
     private ArrayList<Card> deckCards;
     private Card[] handCards;
+    private boolean discoverMode = false;
+    private Card[] discoveredCards;
+
 
     public GamerState(){
 
+    }
+
+    public int getGamerID() {
+        return gamerID;
+    }
+
+    public void setGamerID(int gamerID) {
+        this.gamerID = gamerID;
     }
 
     public int getMana() {
@@ -65,6 +77,22 @@ public class GamerState {
         this.gamerHeroPower = gamerHeroPower;
     }
 
+    public boolean isDiscoverMode() {
+        return discoverMode;
+    }
+
+    public void setDiscoverMode(boolean discoverMode) {
+        this.discoverMode = discoverMode;
+    }
+
+    public Card[] getDiscoveredCards() {
+        return discoveredCards;
+    }
+
+    public void setDiscoveredCards(Card[] discoveredCards) {
+        this.discoveredCards = discoveredCards;
+    }
+
     public void refresh() {
         mana = 1;
         turnNumber = 1;
@@ -73,4 +101,5 @@ public class GamerState {
         deckCards = new ArrayList<>();
         handCards = new Card[12];
     }
+
 }

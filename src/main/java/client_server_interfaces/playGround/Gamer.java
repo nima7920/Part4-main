@@ -1,8 +1,5 @@
 package client_server_interfaces.playGround;
-
-
 import com.google.gson.annotations.Expose;
-
 import java.util.ArrayList;
 
 public class Gamer {
@@ -16,6 +13,10 @@ public class Gamer {
     private int deckCards;
     @Expose
     private String[] handCards;
+    @Expose
+    private boolean discoverMode = false;
+    @Expose
+    private String[] discoveredCards;
 
     public Gamer() {
 
@@ -67,5 +68,21 @@ public class Gamer {
 
     public void setHandCards(String[] handCards) {
         this.handCards = handCards;
+    }
+
+    public boolean isDiscoverMode() {
+        return discoverMode;
+    }
+
+    public void setDiscoverMode(boolean discoverMode) {
+        this.discoverMode = discoverMode;
+    }
+
+    public String[] getDiscoveredCards() {
+        return discoveredCards;
+    }
+
+    public void setDiscoveredCards(String[] discoveredCards) {
+        this.discoveredCards = discoveredCards;
     }
 }
