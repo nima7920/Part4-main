@@ -217,4 +217,8 @@ private CardFactory cardFactory;
         return playGroundState.getGround(playerID)[notNullIndices.get(0)];
     }
 
+    public void addMana() {
+        playGroundState.getGamer(playerID).setMana(playGroundState.getGamer(playerID).getMana() + 1);
+    }
+
 }
