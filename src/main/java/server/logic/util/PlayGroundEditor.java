@@ -11,6 +11,7 @@ import server.models.handlers.CardFactory;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class PlayGroundEditor {
     private int playerID,opponentID;
@@ -166,4 +167,54 @@ private CardFactory cardFactory;
         playGroundState.getGamer(playerID).getDeckCards().add(discoverCard);
         playGroundState.getGamer(playerID).setDiscoveredCards(null);
     }
+
+    public void stealCardFromDeck() {
+        if (playGroundState.getGamer(opponentID).getDeckCards().size() > 0) {
+            for (int i = 0; i < 12; i++) {
+                if (playGroundState.getGamer(playerID).getHandCards()[i] == null) {
+                    playGroundState.getGamer(playerID).getHandCards()[i] = playGroundState.getGamer(opponentID).getDeckCards().get(0);
+                    playGroundState.getGamer(opponentID).getDeckCards().remove(0);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void stealCardFromHand() {
+        int t = -1;
+        for (int i = 0; i < 12; i++) {
+            if (playGroundState.getGamer(opponentID).getHandCards()[i] != null) {
+                t = i;
+                break;
+            }
+        }
+        if (t > -1) {
+            for (int i = 0; i < 12; i++) {
+                if (playGroundState.getGamer(playerID).getHandCards()[i] == null) {
+                    playGroundState.getGamer(playerID).getHandCards()[i] = playGroundState.getGamer(opponentID).getHandCards()[t];
+                    playGroundState.getGamer(opponentID).getHandCards()[t] = null;
+                    break;
+                }
+            }
+        }
+    }
+
+    public boolean heroHasWeapon() {
+        if (playGroundState.getGamer(playerID).getGamerHero().getGamerWeapon() != null)
+            return true;
+        else
+            return false;
+    }
+
+    public GamerMinionState getRandomMinionFromHand() {
+        List<Integer> notNullIndices = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            if (playGroundState.getGround(playerID)[i] != null) {
+                notNullIndices.add(i);
+            }
+        }
+        Collections.shuffle(notNullIndices);
+        return playGroundState.getGround(playerID)[notNullIndices.get(0)];
+    }
+
 }
