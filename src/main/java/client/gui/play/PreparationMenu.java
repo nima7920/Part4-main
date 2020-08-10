@@ -28,9 +28,9 @@ public class PreparationMenu extends GameMenu {
 
     private void initPanels() {
         playModePanel = new PlayModePanel(this);
-//        passivePanel = new PassivePanel();
+        passivePanel = new PassivePanel(this);
         add(playModePanel);
-//        add(passivePanel);
+        add(passivePanel);
         gotoPanel("play mode");
     }
 
@@ -43,16 +43,16 @@ public class PreparationMenu extends GameMenu {
     }
 
     private void gotoPanel(String panelName) {
-//        this.currentPanelName = panelName;
-//        playModePanel.setVisible(false);
-//        passivePanel.setVisible(false);
-//
-//        if (currentPanelName.equals("play mode")) {
-//            playModePanel.setVisible(true);
-//
-//        } else if (currentPanelName.equals("passive")) {
-//            passivePanel.setVisible(true);
-//
-//        }
+        this.currentPanelName = panelName;
+        playModePanel.setVisible(false);
+        passivePanel.setVisible(false);
+
+        if (currentPanelName.equals("play mode")) {
+            playModePanel.setVisible(true);
+
+        } else if (currentPanelName.equals("passive")) {
+            passivePanel.setVisible(true);
+
+        }
     }
 }
