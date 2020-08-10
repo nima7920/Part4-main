@@ -1,6 +1,7 @@
 package server.logic.engine;
 
 import client_server_interfaces.Request;
+import server.network.ClientModerator;
 
 import java.util.HashMap;
 
@@ -8,8 +9,10 @@ public class RequestHandler {
 
     private GsonHandler gsonHandler;
     private static Engine engine;
+    private ClientModerator clientModerator;
 
-    public RequestHandler(ResponseHandler responseHandler) {
+    public RequestHandler(ClientModerator clientModerator,ResponseHandler responseHandler) {
+        this.clientModerator=clientModerator;
         this.engine = new Engine(responseHandler);
         gsonHandler = new GsonHandler();
     }
@@ -97,22 +100,22 @@ public class RequestHandler {
             public void execute(HashMap<String, String> parameters) {
                 engine.sellCard(parameters);
             }
-        } , collections_allCards {
+        }, collections_allCards {
             @Override
             public void execute(HashMap<String, String> parameters) {
 
             }
-        },collections_gotoStore {
+        }, collections_gotoStore {
             @Override
             public void execute(HashMap<String, String> parameters) {
 
             }
-        },collections_deckPanel {
+        }, collections_deckPanel {
             @Override
             public void execute(HashMap<String, String> parameters) {
 
             }
-        },collections_selectDeck {
+        }, collections_selectDeck {
             @Override
             public void execute(HashMap<String, String> parameters) {
 
@@ -162,7 +165,7 @@ public class RequestHandler {
         }, preparation_playMode {
             @Override
             public void execute(HashMap<String, String> parameters) {
-
+                engine.setGameMode(parameters);
             }
         }, preparation_passive {
             @Override

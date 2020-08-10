@@ -27,7 +27,7 @@ public class ClientModerator extends Thread {
         try {
             in = new Scanner(socket.getInputStream());
             out = new PrintWriter(socket.getOutputStream(), true);
-            requestHandler = new RequestHandler(new ResponseHandler(this, out));
+            requestHandler = new RequestHandler(this,new ResponseHandler(this, out));
         } catch (IOException e) {
 
         }
@@ -39,12 +39,15 @@ public class ClientModerator extends Thread {
             try {
                 String requestString = in.nextLine();
                 requestHandler.handleRequest(requestString);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
                 break;
             }
         }
     }
 
+    public void startGame(int playMode) {
+
+    }
 
 }
