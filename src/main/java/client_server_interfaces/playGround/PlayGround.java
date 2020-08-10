@@ -1,15 +1,18 @@
 package client_server_interfaces.playGround;
 
 import com.google.gson.annotations.Expose;
-import server.logic.gameState.GamerMinionState;
-import server.logic.gameState.GamerState;
 
 public class PlayGround {
-
     @Expose
     private int playerID;
-    private Gamer gamer1, gamer2;
-    private GamerMinion[] ground1, ground2;
+    @Expose
+    private Gamer gamer1;
+    @Expose
+    private Gamer gamer2;
+    @Expose
+    private GamerMinion[] ground1;
+    @Expose
+    private GamerMinion[] ground2;
 
     public int getCurrentPlayerID() {
         return playerID;
