@@ -109,19 +109,25 @@ public class Engine {
 
 
     // game methods
-    public void setGameMode(HashMap<String,String> parameters){
-        switch (parameters.get("playMode")){
-            case "mutiPlay":{
-                gameController=new MultiPlay(playerHandler,cardFactory);
-                playMode=1;
+    public void setGameMode(HashMap<String, String> parameters) {
+        switch (parameters.get("playMode")) {
+            case "mutiPlay": {
+                if (playerHandler.isCurrentDeckReady()) {
+                    gameController = new MultiPlay(playerHandler, cardFactory);
+                    playMode = 1;
+                } else {
+                    gotoCollections();
+                }
                 break;
-            } case "singlePlay":{
-                gameController=new SinglePlay(playerHandler,cardFactory);
-                playMode=2;
+            }
+            case "singlePlay": {
+                gameController = new SinglePlay(playerHandler, cardFactory);
+                playMode = 2;
                 break;
-            } case "preparedMode":{
-                gameController=new PreparedPlay(playerHandler,cardFactory);
-                playMode=3;
+            }
+            case "preparedMode": {
+                gameController = new PreparedPlay(playerHandler, cardFactory);
+                playMode = 3;
                 break;
             }
         }
@@ -131,11 +137,11 @@ public class Engine {
         return playMode;
     }
 
-    public void selectPassive(HashMap<String,String> parameters){
+    public void selectPassive(HashMap<String, String> parameters) {
 
     }
 
-    public void startGame(PlayGroundState playGroundState,int playerID){
+    public void startGame(PlayGroundState playGroundState, int playerID) {
 
     }
 

@@ -17,7 +17,7 @@ public class PreparedPlay extends GameController{
     }
 
     @Override
-    public void loadDeck() {
+    public void loadGamer() {
 
     }
 

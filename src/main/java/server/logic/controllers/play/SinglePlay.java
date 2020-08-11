@@ -17,7 +17,7 @@ public class SinglePlay extends GameController{
     }
 
     @Override
-    public void loadDeck() {
+    public void loadGamer() {
 
     }
 

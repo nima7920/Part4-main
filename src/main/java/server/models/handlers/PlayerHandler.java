@@ -86,13 +86,30 @@ public class PlayerHandler {
         }
         playerModerator.savePlayer(currentPlayer);
     }
+
     // mostly used in collections
-    public Deck getDeckFromName(String deckName){
-       for(Deck deck:currentPlayer.getDecks()){
-           if(deck.getName().equals(deckName)){
-               return deck;
-           }
-       }
+    public Deck getDeckFromName(String deckName) {
+        for (Deck deck : currentPlayer.getDecks()) {
+            if (deck.getName().equals(deckName)) {
+                return deck;
+            }
+        }
         return null;
     }
+
+    // play menu methods
+    public boolean isCurrentDeckReady() {
+        if (currentPlayer.getCurrentDeck() != null && currentPlayer.getCurrentDeck().getCards().size() >= 15) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Deck getCurrentDeck() {
+        return currentPlayer.getCurrentDeck();
+    }
+
+    // getters and setters
+
 }
