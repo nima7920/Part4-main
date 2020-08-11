@@ -112,15 +112,15 @@ public class Engine {
     public void setGameMode(HashMap<String,String> parameters){
         switch (parameters.get("playMode")){
             case "mutiPlay":{
-                gameController=new MultiPlay();
+                gameController=new MultiPlay(playerHandler,cardFactory);
                 playMode=1;
                 break;
             } case "singlePlay":{
-                gameController=new SinglePlay();
+                gameController=new SinglePlay(playerHandler,cardFactory);
                 playMode=2;
                 break;
             } case "preparedMode":{
-                gameController=new PreparedPlay();
+                gameController=new PreparedPlay(playerHandler,cardFactory);
                 playMode=3;
                 break;
             }

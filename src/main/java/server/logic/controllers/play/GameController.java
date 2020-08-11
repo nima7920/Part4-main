@@ -25,4 +25,11 @@ public abstract class GameController {
     protected DeathRattleVisitor deathRattleVisitor;
     protected PassiveEndTurnVisitor passiveEndTurnVisitor;
 
+    public abstract void startGame(PlayGroundState playGroundState,int playerID);
+    public abstract void loadDeck();
+    public abstract void playCard(int originIndex,int targetIndex);
+    public abstract void attack(int originIndex,int targetIndex);
+    public abstract void endTurn();
+
+
 }
