@@ -5,20 +5,19 @@ import server.logic.gameState.PlayGroundState;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.channels.ClosedByInterruptException;
 import java.util.ArrayList;
 
 public class Server extends Thread {
 
     private int serverPort;
     private ServerSocket serverSocket;
-    private ArrayList<ClientModerator> waitingList;
+    private ArrayList<ClientModerator> multiWaitingList,preparedWaitingList;
 
     public Server(int serverPort) {
 
         this.serverPort = serverPort;
-        waitingList = new ArrayList<>();
-
+        multiWaitingList = new ArrayList<>();
+preparedWaitingList=new ArrayList<>();
         try {
             serverSocket = new ServerSocket(this.serverPort);
         } catch (IOException e) {
@@ -40,19 +39,28 @@ public class Server extends Thread {
     }
 
     public synchronized void requestGame(ClientModerator clientModerator, int playMode) {
-        if (playMode == 1) {
-            waitingList.add(clientModerator);
+        if (playMode ==1) {
+            multiWaitingList.add(clientModerator);
             checkWaitingList();
-        } else {
+        } else if(playMode==2){
             startSinglePlayGame(clientModerator);
+        }else{
+            preparedWaitingList.add(clientModerator);
+            checkWaitingList();
         }
     }
 
     private synchronized void checkWaitingList() {
-        if (waitingList.size() > 1) {
-            ClientModerator clientModerator1 = waitingList.get(0), clientModerator2 = waitingList.get(1);
-            waitingList.remove(0);
-            waitingList.remove(0);
+        if (multiWaitingList.size() > 1) {
+            ClientModerator clientModerator1 = multiWaitingList.get(0), clientModerator2 = multiWaitingList.get(1);
+            multiWaitingList.remove(0);
+            multiWaitingList.remove(0);
+            startMultiPlayGame(clientModerator1, clientModerator2);
+        }
+        if (preparedWaitingList.size() > 1) {
+            ClientModerator clientModerator1 = preparedWaitingList.get(0), clientModerator2 = preparedWaitingList.get(1);
+            preparedWaitingList.remove(0);
+            preparedWaitingList.remove(0);
             startMultiPlayGame(clientModerator1, clientModerator2);
         }
     }
